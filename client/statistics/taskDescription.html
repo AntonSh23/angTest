@@ -1,0 +1,52 @@
+<div id="overlayPage" class="overPg">
+    <div id="myModal assignSlaveTab" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog taskInfo" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Подробное описание:</h4>
+                </div>
+                <div class="modal-body">
+
+                    <table id="descriptionHeadTable">
+                        <thead>
+                        <tr>
+                            <th>Id продукта:</th>
+                            <th>Id задания:</th>
+                            <th>Название продукта:</th>
+                            <th>Местоположение продукта:</th>
+                            <th>Колличество продуктов:</th>
+                            <th>Время начала задания:</th>
+                            <th>Время завершения задания:</th>
+                            <th>Время создания задания:</th>
+                            <th>Потраченное время:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="task in taskDescription.taskInfo">
+                            <td>{{task.products_id}}</td>
+                            <td>{{task.task_unit_id}}</td>
+                            <td>{{task.products_name}}</td>
+                            <td>{{task.products_place}}</td>
+                            <td>{{task.products_quantity/task.cnt_in_box}}</td>
+                            <td>{{task.time_assigned}}</td>
+                            <td>{{task.time_closed}}</td>
+                            <td>{{task.time_created}}</td>
+                            <td>{{task.time_spend}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-body">
+                    <p>Ответственный: {{taskDescription.responsible}}</p>
+                    <p>Исполнитель: {{taskDescription.executer}}</p>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="hideTaskDescription()">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

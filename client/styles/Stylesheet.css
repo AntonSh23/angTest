@@ -1,0 +1,400 @@
+.colSeparator {
+    border-bottom: 2px solid black;
+}
+
+.taskColl {
+    min-height: 5000px;
+}
+
+#overlayPage {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.38);
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.modal-content {
+    z-index: 20;
+}
+
+.taskUnit:hover {
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+.taskUnit:focus {
+    background-color: #cacfea;
+    cursor: pointer;
+}
+
+.updateTaskData {
+    border: solid 1px grey;
+    padding: 10px;
+}
+
+.modal-dialog {
+    margin-top: 200px;
+}
+
+#printTable {
+    border: solid 1px grey;
+}
+
+#printTable > tbody > tr > td {
+    text-align: center;
+    display: none;
+}
+
+.sortorder:after {
+    content: '\25b2';
+}
+
+.sortorder.reverse:after {
+    content: '\25bc';
+}
+
+#searchTextResults > thead > tr > th:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.taskInfo {
+    top: -120px;
+    overflow: auto;
+    width: 100%;
+}
+
+.taskDescription {
+    border: solid 1px grey;
+}
+
+.overPg {
+    overflow: auto;
+}
+
+#descriptionHeadTable > thead > tr > th {
+    border: solid 1px grey;
+}
+
+#descriptionHeadTable > tbody > tr > td {
+    border: solid 1px grey;
+}
+
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #9A12B3;
+    z-index: 30;
+}
+
+.contpre small {
+    font-size: 25px;
+}
+
+.contpre {
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    margin-left: -125px;
+    margin-top: -75px;
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: -2px;
+    text-align: center;
+    line-height: 35px;
+}
+
+#page-preloader .spinner {
+    position: absolute;
+    width: 41px;
+    height: 41px;
+    background: url(images/spinning-circles.svg) center center no-repeat;
+    background-size: 41px;
+    margin: -16px 0 0 -16px;
+
+}
+
+#newTsk > div > div > p {
+    margin: 0;
+}
+
+#progrTsk > div > div > p {
+    margin: 0;
+}
+
+#doneTsk > div > div > p {
+    margin: 0;
+}
+
+#newTsk > div > div {
+    margin: 3px;
+    font-size: smaller;
+    min-height: 120px;
+}
+
+#progrTsk > div > div {
+    margin: 3px;
+    min-height: 120px;
+    font-size: smaller;
+}
+
+#doneTsk > div > div {
+    margin: 3px;
+    min-height: 120px;
+    font-size: smaller;
+}
+
+#newTsk > div > div {
+    padding: 3px
+}
+
+#progrTsk > div > div {
+    padding: 3px
+}
+
+#doneTsk > div > div {
+    padding: 3px
+}
+
+.orderIdInTab{
+    float: right;
+}
+
+#smallDescTab > tbody > tr > td {
+    border: solid 1px rebeccapurple;
+    text-align: center;
+}
+
+#additData {
+    font-size: smaller;
+}
+
+#additData  > p {
+    margin: 0px;
+}
+
+#additData > form > div > a {
+    margin: 2px;
+    width: 85px;
+}
+
+#additData  > form > div > div > a {
+    margin: 2px;
+    width: 85px;
+}
+
+#additData  > form > p:nth-child(1) > input {
+    width: 85px;
+    height: 40px;
+}
+
+#searchTextResults > tbody > tr:hover {
+    cursor: pointer;
+    background-color: #cccccc;
+}
+
+.usualPrior {
+    color: green;
+
+}
+
+.highPrior {
+    color: #bec00a;
+
+}
+
+.dangerPrior {
+    color: #c00002;
+    font-weight: 700;
+
+}
+
+#myModal\20 assignSlaveTab > div > div > div:nth-child(2) {
+    text-align: center;
+}
+
+#printStickers {
+    padding: 5px 0 0 10px;
+    height: 60px
+}
+
+.col-lg-3, .col-md-3, .col-sm-3 {
+    padding: 4px;
+}
+
+b {
+    font-weight: 600;
+}
+
+.chosenCellTable {
+    text-align: center;
+    margin: 0 10px 5px 0;
+}
+
+.chosenCellTable td {
+    background-color: #efefef;
+    border: 1px solid grey;
+    padding: 3px;
+}
+
+.chosenCellTable thead > tr > td {
+    background-color: #dbdbdb;
+}
+
+.print-btn {
+    margin: 5px;
+}
+
+.btn-exist {
+    color: #ffffff;
+    background-color: #ffed3e;
+    border-color: #FFED3E;
+}
+
+#searchTask {
+    margin: 5px;
+}
+
+.sticky {
+   position: fixed;
+    z-index: 5;
+    top: 30px;
+}
+
+#additData {
+    padding: 3px;
+    margin: 3px;
+    height: 700px;
+    overflow-y: auto;
+}
+
+@media screen and (min-width: 770px) and (max-width: 990px) {
+    #additData {
+        width: 173px;
+    }
+    #smallDescTab{
+        width: 134px;
+    }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1200px) {
+    #additData {
+        width: 229px;
+    }
+    #smallDescTab{
+        width: 190px;
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 5000px) {
+    #additData {
+        width: 280px;
+    }
+    #smallDescTab{
+        width: 240px;
+    }
+}
+
+.description > div.well.ng-scope {
+    height: 700px;
+    overflow-y: visible;
+}
+
+/* Стили редактора пользователей*/
+.manageTab {
+    margin: 4px;
+    color: #555555;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-bottom-color: transparent;
+    cursor: default;
+    height: 500px;
+}
+
+    .rightManageTab > input, .rightManageTab > select {
+        margin: 3px 0 3px 0;
+    }
+
+    .changePasswordForm > input, .newUserForm > input, .newUserForm > select {
+        margin: 3px 0 3px 0;
+    }
+
+    .row{
+        margin: 0;
+    }
+
+    .rightManageTab > a{
+        margin: 3px 3px 3px 3px;
+    }
+
+    .newUserForm > a{
+        margin: 3px 3px 3px 3px;
+    }
+
+    .leftManageTab {
+        background-color: #F4F4F4;
+        margin-left: 25px;
+    }
+
+    .rightManageTab {
+        background-color: #F4F4F4;
+        margin-left: 25px;
+    }
+
+    .userControlBtn {
+        width: 100%;
+        margin: 3px 0 3px 0;
+    }
+
+    .rightManageTab input.ng-valid {
+        background-color: #c4eec0;
+    }
+
+    .ng-not-valid {
+        background-color: #c4eec0;
+    }
+
+    .ng-not-active {
+        background-color: #eeb4c3;
+    }
+    .ng-validd {
+        background-color: #ffffff;
+    }
+
+    input.ng-dirty {
+        background-color: pink;
+    }
+
+    .scrollingLog {
+        height: 350px;
+        overflow-y: auto;
+        border: solid 1px grey;
+        margin: 1px;
+    }
+/* ---------------------------------------*/
+
+.productCard{
+    background: #E8E8E8;
+    border-radius: 10px;
+    margin: 3px;
+    height: 60px;
+    overflow-y: hidden;
+}
+
+
+.productCard:hover{
+    background: #dddddd;
+    border-radius: 10px;
+    margin: 3px;
+    height: 102px;
+    position: relative;
+}

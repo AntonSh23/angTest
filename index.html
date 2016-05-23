@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html data-ng-app="ANGApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ANGApp</title>
+    <link rel="stylesheet" href="client/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="client/styles/Stylesheet.css">
+</head>
+<body>
+
+<div class="container">
+    <div ng-if="access == 'denied' || access == undefined" ng-include="'client/login/login.html'"></div>
+    <div ng-if="access == 'granted'" ng-include="'client/headmenu/headmenu.html'"></div>
+    <div ng-if="access == 'granted'" ng-include="'client/' + page + '/' + page + '.html'"></div>
+</div>
+
+
+<!-- vendor scripts -->
+<script src="client/vendor/jquery-2.2.0.min.js"></script>
+<script src="client/vendor/bootstrap.min.js"></script>
+<script src="client/vendor/angular.min.js"></script>
+
+<!-- app scripts -->
+
+<script src="client/ANGApp.js"></script>
+<script src="client/login/logInCtrl.js"></script>
+<script src="client/login/logInService.js"></script>
+<script src="client/headmenu/headmenuCtrl.js"></script>
+<script src="client/headmenu/headmenuService.js"></script>
+<script src="client/statistics/statisticsCtrl.js"></script>
+<script src="client/statistics/statisticsService.js"></script>
+<script src="client/account/accountCtrl.js"></script>
+<script src="client/account/accountService.js"></script>
+<script src="client/createproduct/createproductCtrl.js"></script>
+<script src="client/createproduct/createproductService.js"></script>
+<script src="client/products/productsCtrl.js"></script>
+<script src="client/products/productsService.js"></script>
+
+
+</body>
+</html>

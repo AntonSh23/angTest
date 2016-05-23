@@ -1,0 +1,96 @@
+<div ng-controller="statisticsCtrl" ng-init="getTasks()">
+    <!-- preloader -->
+   <div id="page-preloader"><div class="contpre"><span class="spinner"></span><br>Подождите<br><small>идет загрузка</small></div></div>
+    <div class="col-lg-12">
+        <h4>Архив заданий</h4>
+        <div class="bs-component">
+            <ul class="nav nav-tabs">
+                <li class=""><a href="#selectMonth" data-toggle="tab" aria-expanded="false">Выбрать месяц</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade" id="selectMonth">
+                    Выбирете месяц
+                    <div ng-repeat="month in archievePeriod">
+                        <div class="cell-index btn btn-xs btn-success ng-binding"
+                             ng-click="getTasks(month.year_available, month.month_available)">
+                            {{month.year_available}}-{{month.month_available}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- Template For task Description-->
+    <div ng-if="taskDescription.taskDisplayStatus == 1" ng-include="'client/statistics/taskDescription.html'"></div>
+
+    <div class="bs-component">
+
+        <label>Поиск в таблице: <input ng-model="searchText"></label>
+        <table class="table table-striped table-hover " id="searchTextResults">
+            <thead>
+            <tr>
+                <th ng-click="order('id')">ID<span class="sortorder" ng-show="predicate === 'id'"
+                                                   ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('executer')">Кто выполнил<span class="sortorder" ng-show="predicate === 'executer'"
+                                                                   ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('responsible')">Кто назначил<span class="sortorder"
+                                                                      ng-show="predicate === 'responsible'"
+                                                                      ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('time_closed')">Дата выполнения<span class="sortorder"
+                                                                         ng-show="predicate === 'time_closed'"
+                                                                         ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('time_created')">Дата создания<span class="sortorder"
+                                                                        ng-show="predicate === 'time_created'"
+                                                                        ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('note')">Описание<span class="sortorder" ng-show="predicate === 'note'"
+                                                           ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('type_id')">Тип<span class="sortorder" ng-show="predicate === 'type_id'"
+                                                           ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('status_id')">Статус<span class="sortorder" ng-show="predicate === 'status_id'"
+                                                           ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('priority_id')">Приоритет<span class="sortorder" ng-show="predicate === 'priority_id'"
+                                                           ng-class="{reverse:reverse}"></span></th>
+                <th ng-click="order('available')">Доступность<span class="sortorder" ng-show="predicate === 'available'"
+                                                                   ng-class="{reverse:reverse}"></span></th>
+                <th>№ заказа</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="task in allTasks | filter:searchText | orderBy:predicate:reverse"
+                ng-click="getTaskData(task.id, task.executer, task.responsible)">
+                <td>{{task.id}}</td>
+                <td>{{task.executer}}</td>
+                <td>{{task.responsible}}</td>
+                <td>{{task.time_closed}}</td>
+                <td>{{task.time_created}}</td>
+                <td>{{task.note}}</td>
+
+                <td ng-if="task.type_id == 1">Упаковка</td>
+                <td ng-if="task.type_id == 2">Сборка</td>
+
+
+                <td ng-if="task.status_id == 1">Новый</td>
+                <td ng-if="task.status_id == 2">Выполняется</td>
+                <td ng-if="task.status_id == 3">Выполнен</td>
+
+                <td ng-if="task.priority_id == 1">Обычный</td>
+                <td ng-if="task.priority_id == 2">Высокий</td>
+                <td ng-if="task.priority_id == 3">Самый высокий</td>
+
+                <td ng-if="task.available > 0">Не доступно</td>
+                <td ng-if="task.available == 0">Доступно</td>
+
+                <td ng-if="task.type_id == 2"> {{task.products_uniter_id}}</td>
+                <td ng-if="task.type_id == 1"> </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+        <div ng-init="alreadyLoaded()"></div>
+    </div>
+
+</div>
+

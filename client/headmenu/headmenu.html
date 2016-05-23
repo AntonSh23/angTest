@@ -1,0 +1,25 @@
+<div ng-controller="headmenuCtrl">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" ng-click="redirectPage()">
+                    <li><a href="#" ng-click="page='account'">Личные данные</a></li>
+                    <li><a href="#" ng-click="page='createproduct'">Создание/редактирование товара</a></li>
+                    <li><a href="#" ng-click="page='products'">Список товаров</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" ng-click="logout()">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div style="padding-top: 70px"></div>

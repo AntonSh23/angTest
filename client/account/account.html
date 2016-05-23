@@ -1,0 +1,98 @@
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#personalData" data-toggle="tab">Личные данные</a></li>
+    <li><a href="#profile" data-toggle="tab">Настройки</a></li>
+</ul>
+<div id="myTabContent" class="tab-content" ng-controller="accountCtrl">
+
+    <div class="tab-pane fade active in" id="personalData">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-sm-6">
+                <h4>Имя:</h4>
+            </div>
+            <div class="col-xs-12 col-md-6 col-sm-6">
+                <h4>{{userData.uname}}</h4>
+            </div>
+            <div class="col-xs-12 col-md-6 col-sm-6">
+                <h4>Фамилия:</h4>
+            </div>
+            <div class="col-xs-12 col-md-6 col-sm-6">
+                <h4>{{userData.usecondname}}</h4>
+            </div>
+            <div class="col-xs-12 col-md-6 col-sm-6">
+                <h4>eMail:</h4>
+            </div>
+            <div class="col-xs-12 col-md-6 col-sm-6">
+                <h4>{{userData.uemail}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="profile">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-sm-4 leftManageTab manageTab">
+                <hr/>
+                <div class="control-label"><b>Выбирете действие</b></div>
+                <hr/>
+                <a href="#" class="btn btn-primary userControlBtn" ng-click="changeUserData = 1; changePassword = 0">Редактировать данные</a>
+                <a href="#" class="btn btn-primary userControlBtn" ng-click="changePassword = 1; changeUserData = 0">Изменить пароль</a>
+            </div>
+
+
+            <div class="col-xs-12 col-md-7 col-sm-7 rightManageTab manageTab" ng-show="changeUserData">
+                <form name="changeUserData" class="newUserForm">
+                    <hr/>
+
+                    <label class="has-error" ng-show="changeUserData.userName.$error.minlength">Слигком короткое
+                        имя!</label>
+                    <label class="has-error" ng-show="changeUserData.userName.$error.maxlength">Слишком длинное
+                        имя!</label>
+                    <input name="userName" type="text" class="form-control" id="inputNewUserName"
+                           placeholder="Введите имя" ng-model="user.name" required ng-minlength="1"
+                           ng-maxlength="255">
+
+                    <label class="has-error" ng-show="changeUserData.userFirstName.$error.minlength">Слигком короткая
+                        фамилия!</label>
+                    <label class="has-error" ng-show="changeUserData.userFirstName.$error.maxlength">Слишком длинная
+                        фамилия!</label>
+                    <input name="userFirstName" type="text" class="form-control" id="inputNewUserSurname"
+                           placeholder="Введите фамилию" ng-model="user.surname" required ng-minlength="1" ng-maxlength="255">
+
+                    <input name="email" type="email" class="form-control" id="inputNewUserEmail"
+                           placeholder="Введите e-mail" ng-model="user.email" required>
+
+                    <input name="tel" type="text" class="form-control" id="inputNewUserTelephone"
+                           placeholder="Введите номер телефона" ng-model="user.tel" ng-pattern="/^((8|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/i" required>
+                    <hr>
+
+                    <button type="submit" href="#" ng-click="changeUserDataFunc()" class="btn btn-success">Подтвердить</button>
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-md-7 col-sm-7 rightManageTab manageTab" ng-show="changePassword">
+                <form name="changePasswordForm" class="changePasswordForm">
+                    <hr/>
+
+                    <label class="has-error" ng-show="changePasswordForm.user.password.$error.minlength">Слигком короткий
+                        пароль!</label>
+                    <label class="has-error" ng-show="changePasswordForm.user.password.$error.maxlength">Слишком длинный
+                        пароль!</label>
+                    <input name="userPassword" type="text" class="form-control" id="userPassword"
+                           placeholder="Введите новый пароль" ng-model="user.password" required ng-minlength="3"
+                           ng-maxlength="16" ng-pattern="/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{6,16})$/">
+
+                    <label class="has-error" ng-show="changePasswordForm.user.repeatPassword.$error.minlength">Слигком короткий
+                        новый пароль!</label>
+                    <label class="has-error" ng-show="changePasswordForm.user.repeatPassword.$error.maxlength">Слишком длинный
+                        новый пароль!</label>
+                    <label class="has-error" ng-show="changePasswordForm.user.repeatPassword.$error">Пароли не совпадают</label>
+                    <input name="userPasswordRepeat" type="text" class="form-control" id="userPasswordRepeat"
+                           placeholder="Повторите пароль" ng-model="user.repeatPassword" compare-to="user.password" required ng-minlength="3" ng-minlength="16">
+                    <hr>
+
+                    <button type="submit" href="#" ng-click="changePasswordFunc()" class="btn btn-success">Подтвердить</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>

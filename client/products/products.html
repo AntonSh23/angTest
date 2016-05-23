@@ -1,0 +1,16 @@
+<div class="row" ng-controller="productsCtrl" ng-init="getAllProducts()">
+    <div class="col-lg-10">
+        <h1>Товары</h1>
+    </div>
+    <div class="row"  >
+        <div ng-repeat="product in products">
+            <div class="col-md-3 col-lg-3 col-sm-3 productCard">
+                <p>NAME:{{product.name}}</p>
+
+                <p>PRICE:{{product.price | currency}}</p>
+
+                <p>DESC:{{product.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
